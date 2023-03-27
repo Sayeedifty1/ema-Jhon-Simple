@@ -3,7 +3,7 @@ import './Cart.css'
 const Cart = ({cart}) => {
    
     
-    console.log(cart);
+    // console.log(cart);
     let total= 0;
     let totalShipping = 0;
     for (const product of cart){
@@ -24,5 +24,5 @@ const Cart = ({cart}) => {
         </div>
     );
 };
-import './Cart.css'
+
 export default Cart;
