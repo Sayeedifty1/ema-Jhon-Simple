@@ -9,7 +9,7 @@ const Header = () => {
            <img src={logo} alt="" />
             <div>
             <Link to="/">Shop</Link>
-            <Link to="/Orders">Order</Link>
+            <Link to="/Orders">Orders</Link>
             <Link to="/Manage Inventory">Manage Inventory</Link>
             <Link to="/Login">Login</Link>
             
