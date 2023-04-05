@@ -1,4 +1,26 @@
-.review-container{
+.review-container {
     margin: 50px auto;
+
+}
+.proceed-link{
+    text-decoration: none;
+}
+.btn-checkout {
     
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    height: 56px;
+    align-items: center;
+    margin: 10px auto;
+    background: #FF9900;
+    border-radius: 4px;
+    color: white;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 25px;
+    letter-spacing: 0.0015em;
+
 }
