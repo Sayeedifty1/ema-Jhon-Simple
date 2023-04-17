@@ -32,6 +32,8 @@ const SignUp = () => {
             console.log(error)
             setError(error.message)
         })
+
+        
     }
 
 
