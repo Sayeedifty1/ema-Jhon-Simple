@@ -19,10 +19,10 @@ const Header = () => {
                 <Link to="/">Shop</Link>
                 <Link to="/Orders">Orders</Link>
                 <Link to="/Manage Inventory">Manage Inventory</Link>
-                <Link to="/Login">Login</Link>
-                <Link to="/signup">Sign Up</Link>
+                
+                {/* <Link to="/signup">Sign Up</Link> */}
                 {
-                    user && <span className='text-white'> welcome {user.email} <button onClick={handleLogOut}>Sign Out</button></span>
+                    user ?  <span className='text-white'> welcome: {user.email} <button onClick={handleLogOut}>Sign Out</button></span> :<Link to="/Login">Login</Link>
                 }
             </div>
         </nav>
