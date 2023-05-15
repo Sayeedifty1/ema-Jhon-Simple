@@ -9,3 +9,14 @@
     grid-template-columns: repeat(3 , 1fr);
     gap: 45px;
 }
+.pagination{
+    text-align: center;
+    margin-bottom: 50px;
+}
+.pagination .selected{
+    padding: 10px;
+    border: 1px solid #ddd;
+    background:  rgb(219, 104, 63);
+    border-radius: 5px;
+   
+}
