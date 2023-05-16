@@ -14,9 +14,9 @@ const Shop = () => {
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [cart, setCart] = useState([]);
-  const [itemsPerPage , setItemsPerPage] = useState(10);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
 
-  const options = [5 , 10, 20]
+  const options = [5, 10, 20]
   // adding pagination
   const { totalProducts } = useLoaderData()
   // const itemsPerPage = 10; make it dynamic
@@ -31,17 +31,29 @@ const Shop = () => {
 
 
 
+
   const handleClearCart = () => {
     setCart([]);
     deleteShoppingCart();
   }
 
 
+  // useEffect(() => {
+  //   fetch('http://localhost:5000/products')
+  //     .then(res => res.json())
+  //     .then(data => setProducts(data))
+  // }, []);
+
+
   useEffect(() => {
-    fetch('http://localhost:5000/products')
-      .then(res => res.json())
-      .then(data => setProducts(data))
-  }, []);
+    async function fetchData() {
+      const response = await fetch(`http://localhost:5000/products?page=${currentPage}&limit=${itemsPerPage}`);
+
+      const data = await response.json();
+      setProducts(data);
+    }
+    fetchData();
+  }, [currentPage, itemsPerPage]);
 
   useEffect(() => {
     const storedCard = getShoppingCart();
@@ -118,21 +130,21 @@ const Shop = () => {
       {/* pagination */}
       <div className="pagination">
         <p>currentPage:{currentPage}</p>
+        {
+          pageNumber.map(number => <button
+            key={number}
+            className={currentPage === number ? 'selected' : ''}
+            onClick={() => setCurrentPage(number)}
+          >{number}</button>)
+        }
+        <select value={itemsPerPage} onChange={handleSelectChange}>
           {
-            pageNumber.map(number => <button 
-              key={number}
-              className={currentPage === number ? 'selected' : ''}
-              onClick={()=> setCurrentPage(number)}
-              >{number}</button>)
-          }
-          <select value={itemsPerPage} onChange={handleSelectChange}>
-            {
-              options.map(option => (
+            options.map(option => (
               <option value={option}>{option}
               </option>
-              ))}
+            ))}
 
-          </select>
+        </select>
       </div>
     </>
   )
